@@ -1,30 +1,30 @@
 <template>
     <div>
-        <b-container>
-            <b-row>
-                <b-col>
-                    <h4>Listagem de Produtos</h4>
-                    <b-table striped hover :items="items" />
-                </b-col>
-            </b-row>
-        </b-container>
+        <h4>Listagem de Produtos</h4>
+        <ApolloQuery :query="query">
+            <template slot-scope="{ result: { loading, error, data } }">
+                <span v-if="loading">Loading...</span>
+                <span v-else-if="error">An error occured</span>
+
+                <section v-if="data">
+                    <b-table striped hover :items="data.products" />
+                </section>
+            </template>
+        </ApolloQuery>
     </div>
 </template>
 
 <script>
-    export default {
-        name: "ProductsList",
-        data() {
-            return {
-                items: [
-                    { isActive: true, age: 40, first_name: 'Dickerson', last_name: 'Macdonald' },
-                    { isActive: false, age: 21, first_name: 'Larsen', last_name: 'Shaw' },
-                    { isActive: false, age: 89, first_name: 'Geneva', last_name: 'Wilson' },
-                    { isActive: true, age: 38, first_name: 'Jami', last_name: 'Carney' }
-                ]
-            }
+import { GET_PRODUCTS } from "./queries.js";
+
+export default {
+    name: "ProductsList",
+    data() {
+        return {
+            query: GET_PRODUCTS
         }
     }
+}
 </script>
 
 <style scoped>

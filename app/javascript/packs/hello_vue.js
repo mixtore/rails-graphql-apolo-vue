@@ -12,8 +12,20 @@ import 'style/application.scss'
 
 import Vue from 'vue/dist/vue.esm'
 import BootstrapVue from 'bootstrap-vue'
+import ApolloClient from 'apollo-boost'
+import VueApollo from 'vue-apollo'
 import App from '../App.vue'
 
+const apolloClient = new ApolloClient({
+  // You should use an absolute URL here
+  uri: 'http://localhost:3000/graphql'
+});
+
+const apolloProvider = new VueApollo({
+  defaultClient: apolloClient,
+});
+
+Vue.use(VueApollo);
 Vue.use(BootstrapVue);
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     data: {
       message: "Can you say hello?"
     },
+    apolloProvider,
     components: { App }
   })
 });

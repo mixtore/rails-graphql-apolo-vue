@@ -1,7 +1,13 @@
 <template>
   <div id="nav">
       <Navbar />
-      <ProductsList />
+      <b-container>
+          <b-row>
+              <b-col>
+                <ProductsList />
+              </b-col>
+          </b-row>
+      </b-container>
   </div>
 </template>
 
