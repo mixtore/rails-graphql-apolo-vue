@@ -4,11 +4,9 @@
         <b-form @submit.prevent="onSubmit" @reset="onReset">
 
             <b-form-group
-                    id="exampleInputGroup2"
                     label="Nome:"
                     label-for="exampleInput2">
                 <b-form-input
-                        id="exampleInput2"
                         type="text"
                         v-model="form.name"
                         required
@@ -16,12 +14,10 @@
             </b-form-group>
 
             <b-form-group
-                    id="exampleInputGroup1"
                     label="Preço:"
                     label-for="exampleInput1"
             >
                 <b-form-input
-                        id="exampleInput1"
                         type="number"
                         v-model="form.price"
                         required
@@ -29,8 +25,8 @@
                         placeholder="Enter price" />
             </b-form-group>
 
-            <b-form-group id="exampleInputGroup3" label="Marca:" label-for="exampleInput3">
-                <b-form-select id="exampleInput3" :options="brandIds" required v-model="form.brandId" />
+            <b-form-group label="Marca:" label-for="exampleInput3">
+                <b-form-select :options="brandIds" required v-model="form.brandId" />
             </b-form-group>
 
             <b-button type="submit" variant="primary">Submit</b-button>
@@ -63,7 +59,6 @@ export default {
             const name = this.form.name;
             const price = this.form.price;
             const brandId = this.form.brandId;
-            console.log(brandId);
 
             this.$apollo
                 .mutate({
@@ -75,7 +70,6 @@ export default {
                     },
                     update: (cache, { data: { createProduct } }) => {
                         const { products } = cache.readQuery({ query: GET_PRODUCTS });
-                        console.log(products);
 
                         cache.writeQuery({
                             query: GET_PRODUCTS,
@@ -83,15 +77,11 @@ export default {
                                 products: products.concat(createProduct)
                             }
                         });
-                    },
-                    optimisticResponse: {
-                        __typename: "Mutation",
-                        createProduct: {
-                            __typename: "Product",
-                            name: name,
-                            price: price
-                        }
                     }
+                })
+                .then(data => {
+                    this.$router.push('/products');
+                    console.log(data);
                 })
                 .catch(error => {
                     console.error(error);
@@ -100,14 +90,12 @@ export default {
                 });
         },
         onReset(evt) {
-            evt.preventDefault()
-            /* Reset our form values */
-            this.form.email = ''
-            this.form.name = ''
-            this.form.food = null
-            this.form.checked = []
-            /* Trick to reset/clear native browser form validation state */
-            this.show = false
+            evt.preventDefault();
+            this.form.name = '';
+            this.form.price = '';
+            this.form.brandId = null;
+
+            this.show = false;
             this.$nextTick(() => {
                 this.show = true
             })
