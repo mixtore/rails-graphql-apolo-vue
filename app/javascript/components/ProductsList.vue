@@ -11,6 +11,10 @@
 
                 <section v-if="data">
                     <b-table striped hover :fields="['id', 'name', 'price', 'brand']" :items="data.products">
+                        <template slot="name" slot-scope="data">
+                            <b-link :to="{ name: 'ProductsPage', params: { id: data.item.id } }">{{ data.item.name }}</b-link>
+                        </template>
+
                         <template slot="brand" slot-scope="data">
                             <b-link :to="{ name: 'BrandsPage', params: { id: data.item.brand.id } }">{{ data.item.brand.name }}</b-link>
                         </template>

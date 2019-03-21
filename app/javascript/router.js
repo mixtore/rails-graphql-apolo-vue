@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from './components/Home'
 import ProductsList from './components/ProductsList'
 import ProductsCreate from './components/ProductsCreate'
+import ProductsPage from './components/ProductsPage'
 import BrandsList from './components/BrandsList'
 import BrandsCreate from './components/BrandsCreate'
 import BrandsPage from './components/BrandsPage'
@@ -28,6 +29,11 @@ export default new Router({
             name: 'ProductsCreate',
             path: '/products/new',
             component: ProductsCreate
+        },
+        {
+            name: 'ProductsPage',
+            path: '/products/:id',
+            component: ProductsPage
         },
         {
             name: 'BrandsList',
