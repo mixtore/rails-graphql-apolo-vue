@@ -14,10 +14,11 @@ import Vue from 'vue/dist/vue.esm'
 import BootstrapVue from 'bootstrap-vue'
 import ApolloClient from 'apollo-boost'
 import VueApollo from 'vue-apollo'
+
 import App from '../App.vue'
+import router from '../router'
 
 const apolloClient = new ApolloClient({
-  // You should use an absolute URL here
   uri: 'http://localhost:3000/graphql'
 });
 
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
       message: "Can you say hello?"
     },
     apolloProvider,
+    router,
     components: { App }
   })
 });

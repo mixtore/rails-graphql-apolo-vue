@@ -4,7 +4,7 @@
       <b-container>
           <b-row>
               <b-col>
-                <ProductsList />
+                  <router-view/>
               </b-col>
           </b-row>
       </b-container>
@@ -12,8 +12,7 @@
 </template>
 
 <script>
-import Navbar from './Navbar'
-import ProductsList from './ProductsList'
+import Navbar from './components/Navbar'
 
 export default {
     data: function () {
@@ -22,8 +21,7 @@ export default {
         }
     },
     components: {
-        Navbar,
-        ProductsList
+        Navbar
     }
 }
 </script>

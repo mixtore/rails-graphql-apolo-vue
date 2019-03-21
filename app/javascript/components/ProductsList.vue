@@ -1,6 +1,9 @@
 <template>
     <div>
-        <h4>Listagem de Produtos</h4>
+        <div class="list-header">
+            <h4>Produtos</h4>
+            <b-button to="/products/new" variant="success">Novo Produto</b-button>
+        </div>
         <ApolloQuery :query="query">
             <template slot-scope="{ result: { loading, error, data } }">
                 <span v-if="loading">Loading...</span>
@@ -15,7 +18,7 @@
 </template>
 
 <script>
-import { GET_PRODUCTS } from "./queries.js";
+import { GET_PRODUCTS } from "../queries.js";
 
 export default {
     name: "ProductsList",
@@ -28,7 +31,9 @@ export default {
 </script>
 
 <style scoped>
-h4{
+.list-header{
+    display: flex;
+    justify-content: space-between;
     margin: 20px 0;
 }
 </style>
