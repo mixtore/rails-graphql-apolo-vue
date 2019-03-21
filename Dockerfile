@@ -1,4 +1,4 @@
-FROM ruby:2.5
+FROM ruby:2.5.4
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
 RUN apt-get update -qq && apt-get install -y nodejs mysql-client
 
