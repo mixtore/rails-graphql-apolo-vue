@@ -4,9 +4,11 @@ mutation createProduct($name: String!, $price: Int!, $brandId: Int!) {
         price: $price,
         brandId: $brandId
     ) {
+        id
         name
         price
         brand {
+            id
             name
         }
     }

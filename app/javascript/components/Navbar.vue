@@ -16,5 +16,7 @@
 </script>
 
 <style scoped>
-
+.navbar{
+    background-color: #0D4872 !important;
+}
 </style>

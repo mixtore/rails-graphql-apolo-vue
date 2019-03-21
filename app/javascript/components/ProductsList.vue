@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="list-header">
+        <div class="page-header">
             <h4>Produtos</h4>
             <b-button to="/products/new" variant="success">Novo Produto</b-button>
         </div>
@@ -10,7 +10,11 @@
                 <span v-else-if="error">An error occured</span>
 
                 <section v-if="data">
-                    <b-table striped hover :items="data.products" />
+                    <b-table striped hover :fields="['id', 'name', 'price', 'brand']" :items="data.products">
+                        <template slot="brand" slot-scope="data">
+                            <b-link :to="{ name: 'BrandsPage', params: { id: data.item.brand.id } }">{{ data.item.brand.name }}</b-link>
+                        </template>
+                    </b-table>
                 </section>
             </template>
         </ApolloQuery>
@@ -31,7 +35,7 @@
 </script>
 
 <style scoped>
-.list-header{
+.page-header{
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
