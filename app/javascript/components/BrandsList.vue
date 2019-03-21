@@ -2,7 +2,7 @@
     <div>
         <div class="list-header">
             <h4>Marcas</h4>
-            <b-button variant="success">Nova marca</b-button>
+            <b-button to="/brands/new" variant="success">Nova Marca</b-button>
         </div>
         <ApolloQuery :query="query">
             <template slot-scope="{ result: { loading, error, data } }">

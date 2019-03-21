@@ -5,6 +5,7 @@ import Home from './components/Home'
 import ProductsList from './components/ProductsList'
 import ProductsCreate from './components/ProductsCreate'
 import BrandsList from './components/BrandsList'
+import BrandsCreate from './components/BrandsCreate'
 
 Vue.use(Router);
 
@@ -27,6 +28,10 @@ export default new Router({
         {
             path: '/brands',
             component: BrandsList
+        },
+        {
+            path: '/brands/new',
+            component: BrandsCreate
         }
     ]
 })

@@ -1,0 +1,7 @@
+mutation createBrand($name: String!) {
+    createBrand(
+        name: $name
+    ) {
+        name
+    }
+}

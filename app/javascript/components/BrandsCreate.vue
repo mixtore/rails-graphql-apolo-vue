@@ -20,8 +20,8 @@
 </template>
 
 <script>
-    import PRODUCTS_ALL from '../graphql/ProductsAll.gql'
-    import PRODUCT_CREATE from '../graphql/ProductsCreate.gql'
+    import BRANDS_ALL from '../graphql/BrandsAll.gql'
+    import BRAND_CREATE from '../graphql/BrandsCreate.gql'
 
     export default {
         name: "BrandsCreate",
@@ -29,37 +29,32 @@
             return {
                 form: {
                     name: '',
-                },
-                show: true
+                }
             }
-        }
+        },
         methods: {
             onSubmit() {
                 const name = this.form.name;
-                const price = this.form.price;
-                const brandId = parseInt(this.form.brandId);
 
                 this.$apollo
                     .mutate({
-                        mutation: PRODUCT_CREATE,
+                        mutation: BRAND_CREATE,
                         variables: {
-                            name,
-                            price,
-                            brandId
+                            name
                         },
-                        update: (cache, {data: {createProduct}}) => {
-                            const {products} = cache.readQuery({query: PRODUCTS_ALL});
+                        update: (cache, {data: {createBrand}}) => {
+                            const {brands} = cache.readQuery({query: BRANDS_ALL});
 
                             cache.writeQuery({
-                                query: PRODUCTS_ALL,
+                                query: BRANDS_ALL,
                                 data: {
-                                    products: products.concat(createProduct)
+                                    brands: brands.concat(createBrand)
                                 }
                             });
                         }
                     })
                     .then(data => {
-                        this.$router.push('/products');
+                        this.$router.push('/brands');
                         console.log(data);
                     })
                     .catch(error => {
@@ -71,13 +66,6 @@
             onReset(evt) {
                 evt.preventDefault();
                 this.form.name = '';
-                this.form.price = '';
-                this.form.brandId = null;
-
-                this.show = false;
-                this.$nextTick(() => {
-                    this.show = true
-                })
             }
         }
     }
