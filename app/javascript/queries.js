@@ -22,8 +22,16 @@ export const GET_BRANDS = gql`
 
 export const CREATE_PRODUCT = gql`
   mutation createProduct($name: String!, $price: Int!, $brandId: Int!) {
-    createProduct(name: $name, price: $price, brandId: $brandId) {
+    createProduct(
+      name: $name, 
+      price: $price, 
+      brandId: $brandId
+    ) {
       name
-    }
+      price
+      brand {
+        name
+      }
+    } 
   }
 `;
