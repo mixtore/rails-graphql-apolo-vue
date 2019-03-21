@@ -18,13 +18,13 @@
 </template>
 
 <script>
-import { GET_BRANDS } from "../queries.js";
+import BRANDS_ALL from "../graphql/BrandsAll.gql";
 
 export default {
     name: "BrandsList",
     data() {
         return {
-            query: GET_BRANDS
+            query: BRANDS_ALL
         }
     }
 }

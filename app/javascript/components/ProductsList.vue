@@ -18,16 +18,16 @@
 </template>
 
 <script>
-import { GET_PRODUCTS } from "../queries.js";
+    import PRODUCTS_ALL from '../graphql/ProductsAll.gql'
 
-export default {
-    name: "ProductsList",
-    data() {
-        return {
-            query: GET_PRODUCTS
+    export default {
+        name: "ProductsList",
+        data() {
+            return {
+                query: PRODUCTS_ALL
+            }
         }
     }
-}
 </script>
 
 <style scoped>

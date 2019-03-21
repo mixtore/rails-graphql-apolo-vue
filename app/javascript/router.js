@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import Home from './components/Home'
 import ProductsList from './components/ProductsList'
-import ProductsForm from './components/ProductsForm'
+import ProductsCreate from './components/ProductsCreate'
 import BrandsList from './components/BrandsList'
 
 Vue.use(Router);
@@ -22,7 +22,7 @@ export default new Router({
         },
         {
             path: '/products/new',
-            component: ProductsForm
+            component: ProductsCreate
         },
         {
             path: '/brands',

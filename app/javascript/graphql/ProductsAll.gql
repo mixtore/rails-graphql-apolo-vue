@@ -1,0 +1,9 @@
+query {
+    products {
+        name
+        price
+        brand {
+            name
+        }
+    }
+}
