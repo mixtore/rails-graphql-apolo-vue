@@ -6,5 +6,6 @@ module Types
         field :name, String, null: false
         field :price, Float, null: false
         field :brand, BrandType, null: false
+        field :variants, [ProductVariantType], null: false
     end
 end
