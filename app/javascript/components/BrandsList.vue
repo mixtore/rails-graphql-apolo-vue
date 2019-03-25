@@ -10,7 +10,11 @@
                 <span v-else-if="error">An error occured</span>
 
                 <section v-if="data">
-                    <b-table striped hover :items="data.brands" />
+                    <b-table striped hover :fields="['name']" :items="data.brands">
+                        <template slot="name" slot-scope="data">
+                            <b-link :to="{ name: 'BrandsPage', params: { id: data.item.id } }">{{ data.item.name }}</b-link>
+                        </template>
+                    </b-table>
                 </section>
             </template>
         </ApolloQuery>
