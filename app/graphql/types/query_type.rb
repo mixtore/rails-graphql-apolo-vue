@@ -7,7 +7,6 @@ module Types
             description "Find a product by ID"
             argument :id, Integer, required: true
         end
-
         def product(id:)
             Product.find(id)
         end
@@ -15,7 +14,6 @@ module Types
         field :products, [ProductType], null: false do
             description "List all products"
         end
-
         def products
             Product.all
         end
@@ -26,7 +24,6 @@ module Types
             description "Find a brand by ID"
             argument :id, Integer, required: true
         end
-
         def brand(id:)
             Brand.find(id)
         end
@@ -34,7 +31,6 @@ module Types
         field :brands, [BrandType], null: false do
             description "List all brands"
         end
-
         def brands
             Brand.all
         end

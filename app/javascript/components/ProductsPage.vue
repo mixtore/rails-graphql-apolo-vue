@@ -9,6 +9,8 @@
                     <h4>{{ data.product.name }}</h4>
                     <h5>R$ {{ data.product.price }}</h5>
                     <h5>Brand: {{ data.product.brand.name }}</h5>
+                    <h5>Variants:</h5>
+                    <b-table striped hover :items="data.product.variants"></b-table>
                 </div>
             </template>
         </ApolloQuery>
