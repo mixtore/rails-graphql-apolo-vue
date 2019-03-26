@@ -58,15 +58,12 @@
         data() {
             return {
                 form: {
-                    name: 'lorem ipsum',
-                    price: 123456,
-                    brandId: 1,
+                    name: '',
+                    price: 0,
+                    brandId: null,
                     variants: []
                 },
-                variantOptions: [
-                    { name: 'Cor', options: [ 'azul', 'branco', 'preto' ]},
-                    { name: 'Tamanho', options: [ 'P', 'M', 'G', 'GG' ]},
-                ]
+                variantOptions: []
             }
         },
         components: {
@@ -116,9 +113,10 @@
                 this.resetVariants();
             },
             resetVariants() {
-                console.log('resetting variants');
                 const variants = [];
                 const options = {};
+
+                if (this.variantOptions.length < 1) return;
 
                 this.variantOptions.forEach(variant => {
                     options[variant.name] = variant.options
