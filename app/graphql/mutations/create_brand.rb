@@ -1,5 +1,6 @@
 module Mutations
   class CreateBrand < BaseMutation
+    description 'Create a new brand'
     argument :name, String, required: true
 
     type Types::BrandType
