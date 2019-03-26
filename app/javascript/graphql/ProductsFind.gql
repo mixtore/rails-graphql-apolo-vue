@@ -12,6 +12,7 @@ query ($id: Int!){
             option1
             option2
             option3
+            barcode
         }
     }
 }
