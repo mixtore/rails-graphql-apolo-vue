@@ -14,7 +14,7 @@ module Mutations
         price: price,
         brand_id: brand_id
       )
-      product.variants = ProductVariant.create(variants&.map(&:to_hash))
+      product.variants = ProductVariant.create(variants&.map(&:to_h))
       product
     rescue ActiveRecord::RecordInvalid => e
       GraphQL::ExecutionError.new("Invalid input: #{e.record.errors.full_messages.join(', ')}")
