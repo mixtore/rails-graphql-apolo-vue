@@ -12,6 +12,7 @@ import 'style/application.scss'
 
 import Vue from 'vue/dist/vue.esm'
 import BootstrapVue from 'bootstrap-vue'
+import money from 'v-money'
 import ApolloClient from 'apollo-boost'
 import VueApollo from 'vue-apollo'
 
@@ -28,6 +29,12 @@ const apolloProvider = new VueApollo({
 
 Vue.use(VueApollo);
 Vue.use(BootstrapVue);
+Vue.use(money, {
+  precision: 2,
+  decimal: ',',
+  thousands: '.',
+  prefix: 'R$ '
+});
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({

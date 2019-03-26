@@ -14,18 +14,18 @@
 
             <b-form-group
                     label="Preço:">
-                <b-form-input
-                        type="number"
-                        v-model="form.price"
-                        required
-                        number
-                        placeholder="Enter price"/>
+                <money v-model.lazy="form.price" class="form-control" required></money>
             </b-form-group>
 
+            <BrandsSelector v-model="form.brandId"/>
 
             <b-form-group label="Opções de produto:">
                 <b-card>
-                    <b-table striped hover :items="variantOptions"></b-table>
+                    <b-table striped hover :items="variantOptions">
+                        <template slot="options" slot-scope="data">
+                            <Chips :items="data.item.options"/>
+                        </template>
+                    </b-table>
 
                     <ProductsVariantsCreate @addOption="addOption"/>
 
@@ -36,8 +36,6 @@
                     </b-table>
                 </b-card>
             </b-form-group>
-
-            <BrandsSelector v-model="form.brandId"/>
 
             <b-button type="submit" variant="primary">Submit</b-button>
             <b-button type="reset" variant="danger">Reset</b-button>
@@ -51,6 +49,7 @@
 
     import BrandsSelector from './BrandsSelector'
     import ProductsVariantsCreate from './ProductsVariantsCreate'
+    import Chips from './Chips'
 
     import combos from 'combos';
 
@@ -72,7 +71,8 @@
         },
         components: {
             BrandsSelector,
-            ProductsVariantsCreate
+            ProductsVariantsCreate,
+            Chips
         },
         created() {
             this.resetVariants();
