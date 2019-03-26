@@ -93,21 +93,11 @@
                             price,
                             brandId,
                             variants
-                        },
-                        update: (cache, {data: {createProduct}}) => {
-                            // const { products } = cache.readQuery({ query: PRODUCTS_ALL });
-                            //
-                            // cache.writeQuery({
-                            //     query: PRODUCTS_ALL,
-                            //     data: {
-                            //         products: products.concat(createProduct)
-                            //     }
-                            // });
                         }
                     })
                     .then(data => {
-                        // this.$router.push('/products');
-                        console.log(data);
+                        const { data: { createProduct: { id } } } = data;
+                        this.$router.push({ name: 'ProductsPage', params: { id } });
                     })
                     .catch(error => {
                         console.error(error);
