@@ -1,8 +1,10 @@
 module Types
-    class ProductInput < BaseInputObject
-        argument :name, String, null: false
-        argument :price, Float, null: false
-        argument :brand, BrandType, null: false
-        argument :variants, [ProductVariantType], null: false
-    end
+  class ProductInput < BaseInputObject
+    description 'Input required to create a product'
+
+    argument :name, String, required: true
+    argument :price, Integer, required: true
+    argument :brandId, Integer, required: true
+    argument :variants, [Types::ProductVariantInput], required: false
+  end
 end

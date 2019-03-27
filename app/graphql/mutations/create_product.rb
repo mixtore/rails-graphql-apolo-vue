@@ -1,10 +1,7 @@
 module Mutations
   class CreateProduct < BaseMutation
     description 'Create a new product with variants'
-    argument :name, String, required: true
-    argument :price, Integer, required: true
-    argument :brandId, Integer, required: true
-    argument :variants, [Types::ProductVariantInput], required: false
+    argument :input, Types::ProductInput, required: true
 
     type Types::ProductType
 
