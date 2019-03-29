@@ -72,5 +72,6 @@ Some example apps created with Rails and the official [GraphQL Ruby](https://git
 ## Designing an API
 
 * [GraphQL Design Tutorial (Shopify)](https://github.com/Shopify/graphql-design-tutorial/blob/master/TUTORIAL.md#input-structure-part-2)
+* [Shopify GraphQL Explorer](https://help.shopify.com/en/api/custom-storefronts/storefront-api/graphql-explorer)
 * [Designing Mutations](https://blog.apollographql.com/designing-graphql-mutations-e09de826ed97)
 * [Nested Mutations](https://hackernoon.com/graphql-nested-mutations-with-apollo-small-fatigue-max-gain-1020f627ea2e)
