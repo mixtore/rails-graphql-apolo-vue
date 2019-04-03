@@ -12,13 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2019_03_22_194207) do
 
-  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_variants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "product_variants", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "product_id"
     t.string "name"
     t.string "description"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_03_22_194207) do
     t.index ["product_id"], name: "index_product_variants_on_product_id"
   end
 
-  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "brand_id"
     t.string "name", null: false
     t.decimal "price", precision: 10, null: false

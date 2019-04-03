@@ -34,6 +34,9 @@
             return {
                 query: PRODUCTS_ALL
             }
+        },
+        mounted() {
+            // this.$store.dispatch('test/fetchBrands')
         }
     }
 </script>
