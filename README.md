@@ -1,6 +1,6 @@
-# Rails-GraphQL-Apollo-VueJS
+# Rails + GraphQL + Apollo + VueJS Example App
 
-This project is meant to be a simple proof of concept of a store manager built using the stack Rails + GraphQL + Apollo + VueJS. 
+This project is meant to be a simple proof of concept of a store manager built using the stack [Rails](https://rubyonrails.org/) + [GraphQL](https://graphql.org/) + [Apollo](https://github.com/Akryum/vue-apollo) + [VueJS](https://vuejs.org/). 
 
 The main objective here is to explore how these technologies interact with each other. What are the benefits and compromises? Will GraphQL serve us better than REST? Should VueJS be bundled with Rails or served as an independent project? Feel free to play with it and help us answer those questions!
 
