@@ -11,7 +11,9 @@ The main objective here is to explore how these technologies interact with each 
 To run it using Docker, run the following commands:
 
 ```sh
-docker-compose up --build
+docker-compose build
+docker-compose run web yarn
+docker-compose up
 ```
 
 #### Seeding the database
