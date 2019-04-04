@@ -5,6 +5,7 @@ import Home from './components/Home'
 import ProductsList from './components/ProductsList'
 import ProductsCreate from './components/ProductsCreate'
 import ProductsPage from './components/ProductsPage'
+import ProductEdit from './components/ProductEdit'
 import BrandsList from './components/BrandsList'
 import BrandsCreate from './components/BrandsCreate'
 import BrandsPage from './components/BrandsPage'
@@ -34,6 +35,11 @@ export default new Router({
             name: 'ProductsPage',
             path: '/products/:id',
             component: ProductsPage
+        },
+        {
+            name: 'ProductEdit',
+            path: '/product/:id/edit',
+            component: ProductEdit
         },
         {
             name: 'BrandsList',

@@ -14,6 +14,7 @@
                 </div>
             </template>
         </ApolloQuery>
+        <b-link :to="{ name: 'ProductEdit', params: { id: id } }"> Edit this product </b-link>
     </div>
 </template>
 
@@ -23,12 +24,12 @@
     export default {
         name: "BrandsPage",
         data() {
-            return {
-                queries: {
-                    productsFind: PRODUCTS_FIND
-                },
-                id: parseInt(this.$route.params['id'])
-            }
+          return {
+            queries: {
+                productsFind: PRODUCTS_FIND
+            },
+            id: parseInt(this.$route.params['id'])
+          }
         }
     }
 </script>

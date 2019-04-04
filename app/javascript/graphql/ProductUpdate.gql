@@ -1,0 +1,30 @@
+# :id
+# :name
+# :price
+# :brandId
+# :variants
+
+mutation UpdateProduct($id: Int!, $name: String!, $price: Int!, $brandId: Int!, $variants: [ProductVariantInput!]) {
+    updateProduct(
+        id: $id
+        name: $name,
+        price: $price,
+        brandId: $brandId
+        variants: $variants
+    ) {
+        id
+        name
+        price
+        brand {
+            id
+            name
+        }
+        variants {
+            name
+            option1
+            option2
+            option3
+            barcode
+        }
+    }
+}

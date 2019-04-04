@@ -1,0 +1,18 @@
+query ($id: Int!){
+    product(id: $id) {
+        id
+        name
+        price
+        brand {
+            id
+            name
+        }
+        variants {
+            name
+            option1
+            option2
+            option3
+            barcode
+        }
+    }
+}
